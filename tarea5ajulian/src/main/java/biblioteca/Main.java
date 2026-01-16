@@ -39,27 +39,25 @@ public class Main {
         libro1.devolver();
         System.out.println("Estado después de devolver: " + libro1);
 
-        // Prueba de hashCode
-        System.out.println("\n--- PRUEBA DE HASHCODE() ---");
-        System.out.println("HashCode de Libro 1 (ISBN: 1111): " + libro1.hashCode());
-        System.out.println("HashCode de Libro 2 (ISBN: 2222): " + libro2.hashCode());
-        System.out.println("HashCode de Libro 3 (ISBN: 3333): " + libro3.hashCode());
-        System.out.println("HashCode de Libro 4 (ISBN: 4444): " + libro4.hashCode());
-        System.out.println("HashCode de Libro 5 (ISBN: 5555): " + libro5.hashCode());
-        System.out.println("HashCode de Libro 6 (ISBN: 6666): " + libro6.hashCode());
-        System.out.println("HashCode de Libro 7 (ISBN: 7777): " + libro7.hashCode());
-        System.out.println("HashCode de Libro 8 (ISBN: 8888): " + libro8.hashCode());
-        System.out.println("HashCode de Libro 9 (ISBN: 9999): " + libro9.hashCode());
-        System.out.println("HashCode de Libro 10 (ISBN: 0000): " + libro10.hashCode());
-        System.out.println("HashCode de Libro 11 (ISBN: 0000): " + libro11.hashCode());
-        System.out.println("\n✓ Los libros 10 y 11 tienen el mismo ISBN (0000) por lo que generan el mismo hashCode");
-        System.out.println("✓ Los demás libros tienen ISBN diferente por lo que generan hashCode diferentes");
+        // Crear catálogo y agregar libros
+        System.out.println("\n========== PARTE B: CLASE CATALOGO LIBROS ==========\n");
+        CatalogoLibros catalogo = new CatalogoLibros();
+        
+        catalogo.guardar(libro1);
+        catalogo.guardar(libro2);
+        catalogo.guardar(libro3);
+        catalogo.guardar(libro4);
+        catalogo.guardar(libro5);
+        catalogo.guardar(libro6);
+        catalogo.guardar(libro7);
+        catalogo.guardar(libro8);
+        catalogo.guardar(libro9);
+        catalogo.guardar(libro10);
+        catalogo.guardar(libro11);
+        
+        System.out.println("Cantidad de libros en el catálogo: " + catalogo.cantidad());
+        catalogo.eliminar("1111");
+        
 
-        // Prueba de equals
-        System.out.println("\n--- PRUEBA DE EQUALS() ---");
-        System.out.println("libro1.equals(libro2): " + libro1.equals(libro2) + " (ISBN diferente)");
-        System.out.println("libro10.equals(libro11): " + libro10.equals(libro11) + " (ISBN igual: 0000)");
-        System.out.println("libro5.equals(libro1): " + libro5.equals(libro1) + " (ISBN diferente)");
-        System.out.println("libro1.equals(libro1): " + libro1.equals(libro1) + " (misma instancia)");
     }
 }

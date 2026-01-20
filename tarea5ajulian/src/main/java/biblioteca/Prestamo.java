@@ -10,4 +10,15 @@ public class Prestamo {
      * localdate -> fecha ini / fecha devolucion=esto es 15 dias despues
      * se le ppone getter y setters
      */
+
+
+    //mirar  clase collections.sort
+            // colletions.binarysearch
+
+
+
+
+
+
+
 }

@@ -1,6 +1,7 @@
 package biblioteca;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CarteraEstudiantes {
@@ -32,6 +33,11 @@ public class CarteraEstudiantes {
             cartera.remove(pos);
         }
 
+    }
+
+    // ordenar estudiantes por dni
+    public void ordenarPorDNI() {
+        Collections.sort(cartera, (e1, e2) -> e2.getDni().compareTo(e1.getDni()));
     }
 
     // buscar estudiante

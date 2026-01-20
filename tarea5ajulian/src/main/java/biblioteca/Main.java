@@ -6,6 +6,21 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("========== PARTE A: CLASE LIBRO Y ENUM GENERO ==========\n");
 
+        // Crear 5 estudiantes
+        Estudiante est1 = new Estudiante("Juan", "García", "12345678A");
+        Estudiante est2 = new Estudiante("María", "López", "23456789B");
+        Estudiante est3 = new Estudiante("Carlos", "Martínez", "34567890C");
+        Estudiante est4 = new Estudiante("Ana", "Rodríguez", "45678901D");
+        Estudiante est5 = new Estudiante("Pedro", "Fernández", "56789012E");
+
+        // Mostrar datos de los estudiantes
+        System.out.println("========== ESTUDIANTES ==========\n");
+        System.out.println("Estudiante 1: " + est1);
+        System.out.println("Estudiante 2: " + est2);
+        System.out.println("Estudiante 3: " + est3);
+        System.out.println("Estudiante 4: " + est4);
+        System.out.println("Estudiante 5: " + est5);
+
         // Crear 10 libros distintos y un 11º que repite el ISBN del 10º
         Libro libro1 = new Libro("Cien años de soledad", "Gabriel García Márquez", 1967, "1111", Genero.NOVELA, true);
         Libro libro2 = new Libro("Don Quijote", "Miguel de Cervantes", 1605, "2222", Genero.NOVELA, true);
@@ -63,6 +78,14 @@ public class Main {
 
         System.out.println("Cantidad de libros en el catálogo: " +catalogo.cantidad());
 
+
+
+
+
+
+
+
+        
         // APLICACIÓN CON MENÚ USANDO JOPTIONPANE
         System.out.println("\n========== MENÚ INTERACTIVO DEL CATÁLOGO ==========\n");
         

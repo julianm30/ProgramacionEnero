@@ -181,7 +181,7 @@ public class Main {
         String autor = JOptionPane.showInputDialog("Ingresa el nombre del autor a buscar:");
         if (autor == null) return;
         
-        var librosAutor = catalogo.buscarAutor(autor);
+        java.util.List<Libro> librosAutor = catalogo.buscarAutor(autor);
         if (!librosAutor.isEmpty()) {
             StringBuilder sb = new StringBuilder("✓ Libros encontrados de " + autor + ":\n\n");
             for (Libro libro : librosAutor) {

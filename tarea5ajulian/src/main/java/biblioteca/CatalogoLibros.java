@@ -1,14 +1,12 @@
 package biblioteca;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-import javax.sound.sampled.SourceDataLine;
 
 public class CatalogoLibros {
 
-    private List<Libro> lista;
+    private final List<Libro> lista;
 
     // constructor predeterminado
     public CatalogoLibros() {
@@ -107,6 +105,25 @@ public class CatalogoLibros {
     // imprimir
     public void imprimir() {
         lista.forEach(System.out::println);
+    }
+
+    // ordenar por publicacion
+    public void ordenarPorAnio() {
+        Collections.sort(lista, (l1, l2) -> l2.getAnioPublicacion() - l1.getAnioPublicacion());
+    }
+
+    // ordenar por titulo
+    public void ordenarPorTitulo() {
+        Collections.sort(lista, (l1, l2) -> l1.getTitulo().compareTo(l2.getTitulo()));
+    }
+
+    // buscar por anio
+    public int buscarPorTitulo(String titulo) {
+        ordenarPorTitulo();
+        Libro aux = new Libro();
+        aux.setTitulo(titulo);
+        return Collections.binarySearch(lista, aux, (l1, l2) -> l1.getTitulo().compareTo(l2.getTitulo()));
+
     }
 
 }

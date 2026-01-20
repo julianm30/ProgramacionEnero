@@ -2,6 +2,9 @@ package biblioteca;
 
 public class Prestamo {
 
+    private
+
+    
     /*
      * tiene como atributos privados
      * id(numerico)

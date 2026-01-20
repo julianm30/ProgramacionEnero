@@ -16,6 +16,11 @@ public class CarteraEstudiantes {
         cartera = new ArrayList<>(100);
     }
 
+    // cantidad()
+    public int cantidad() {
+        return cartera.size();
+    }
+
     // añadir estudiante
     public void anadirEstudiante(Estudiante e) {
         cartera.add(e);
@@ -34,4 +39,7 @@ public class CarteraEstudiantes {
         return cartera.indexOf(estudiante);
     }
 
+    public void imprimir() {
+        cartera.forEach(System.out::println);
+    }
 }

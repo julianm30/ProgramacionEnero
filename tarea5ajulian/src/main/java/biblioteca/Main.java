@@ -6,6 +6,32 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("========== PARTE A: CLASE LIBRO Y ENUM GENERO ==========\n");
 
+        // Crear 5 estudiantes
+        Estudiante est1 = new Estudiante("Juan", "García", "12345678A");
+        Estudiante est2 = new Estudiante("María", "López", "23456789B");
+        Estudiante est3 = new Estudiante("Carlos", "Martínez", "34567890C");
+        Estudiante est4 = new Estudiante("Ana", "Rodríguez", "45678901D");
+        Estudiante est5 = new Estudiante("Pedro", "Fernández", "56789012E");
+
+        // Mostrar datos de los estudiantes
+        System.out.println("========== ESTUDIANTES ==========\n");
+        System.out.println("Estudiante 1: " + est1);
+        System.out.println("Estudiante 2: " + est2);
+        System.out.println("Estudiante 3: " + est3);
+        System.out.println("Estudiante 4: " + est4);
+        System.out.println("Estudiante 5: " + est5);
+
+        // crear catalogo y agregar estudiantes
+        System.out.println("\nPARTE B: CLASE CATALOGO Estudiantes\n");
+        CarteraEstudiantes estudiantes = new CarteraEstudiantes();
+
+        //agregamos estudiantes
+        estudiantes.anadirEstudiante(est1);
+        estudiantes.anadirEstudiante(est2);
+        estudiantes.anadirEstudiante(est3);
+        estudiantes.anadirEstudiante(est4);
+        estudiantes.anadirEstudiante(est5);
+
         // Crear 10 libros distintos y un 11º que repite el ISBN del 10º
         Libro libro1 = new Libro("Cien años de soledad", "Gabriel García Márquez", 1967, "1111", Genero.NOVELA, true);
         Libro libro2 = new Libro("Don Quijote", "Miguel de Cervantes", 1605, "2222", Genero.NOVELA, true);
@@ -124,25 +150,40 @@ public class Main {
             int anio = Integer.parseInt(anioStr);
 
             String isbn = JOptionPane.showInputDialog("Ingresa el ISBN (4 dígitos):");
+<<<<<<< HEAD
             if (isbn == null) {
 
             }
+=======
+            if (isbn == null)
+                return;
+>>>>>>> a1b1187023c5dc0feb910cb8bc6c27d9e0d6866b
 
             String[] generos = { "NOVELA", "FICCION", "POESIA", "RELATO" };
             int indexGenero = JOptionPane.showOptionDialog(null, "Selecciona el género:", "Género",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, generos, generos[0]);
+<<<<<<< HEAD
             if (indexGenero < 0) {
 
             }
+=======
+            if (indexGenero < 0)
+                return;
+>>>>>>> a1b1187023c5dc0feb910cb8bc6c27d9e0d6866b
 
             Genero genero = Genero.valueOf(generos[indexGenero]);
 
             String[] disponibilidad = { "Disponible", "No disponible" };
             int indexDisponible = JOptionPane.showOptionDialog(null, "¿Está disponible?", "Disponibilidad",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, disponibilidad, disponibilidad[0]);
+<<<<<<< HEAD
             if (indexDisponible < 0) {
 
             }
+=======
+            if (indexDisponible < 0)
+                return;
+>>>>>>> a1b1187023c5dc0feb910cb8bc6c27d9e0d6866b
 
             boolean disponible = indexDisponible == 0;
 
@@ -164,6 +205,10 @@ public class Main {
         if (catalogo.estaVacia()) {
             JOptionPane.showMessageDialog(null, "El catálogo está vacío.", "Información",
                     JOptionPane.INFORMATION_MESSAGE);
+<<<<<<< HEAD
+=======
+            return;
+>>>>>>> a1b1187023c5dc0feb910cb8bc6c27d9e0d6866b
         }
 
         StringBuilder sb = new StringBuilder("========== LIBROS DEL CATÁLOGO ==========\n\n");

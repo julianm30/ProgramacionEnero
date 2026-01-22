@@ -4,15 +4,6 @@ import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("========== PARTE A: CLASE LIBRO Y ENUM GENERO ==========\n");
-
-     
-
-        // crear catalogo y agregar estudiantes
-        System.out.println("\nPARTE B: CLASE CATALOGO Estudiantes\n");
-        CarteraEstudiantes estudiantes = new CarteraEstudiantes();
-
-        
 
         // Crear 10 libros distintos y un 11º que repite el ISBN del 10º
         Libro libro1 = new Libro("Cien años de soledad", "Gabriel García Márquez", 1967, "1111", Genero.NOVELA, true);
@@ -52,7 +43,7 @@ public class Main {
         // Crear catálogo y agregar libros
         System.out.println("\nPARTE B: CLASE CATALOGO LIBROS\n");
 
-       CatalogoLibros catalogo = generarCatalogoLibros();
+        CatalogoLibros catalogo = new CatalogoLibros();
 
         catalogo.guardar(libro1);
         catalogo.guardar(libro2);
@@ -70,9 +61,6 @@ public class Main {
         catalogo.eliminar(8);
 
         System.out.println("Cantidad de libros en el catálogo: " + catalogo.cantidad());
-
-        // APLICACIÓN CON MENÚ USANDO JOPTIONPANE
-        System.out.println("\n========== MENÚ INTERACTIVO DEL CATÁLOGO ==========\n");
 
         boolean continuar = true;
         while (continuar) {
@@ -114,31 +102,11 @@ public class Main {
                         JOptionPane.ERROR_MESSAGE);
             }
         }
-    
-     //Prestamo p1 =new Prestamo(1, cartera , catalogo.obtener(1));
-      //System.out.println(p1);
 
-
-
-
+        // Prestamo p1 =new Prestamo(1, cartera , catalogo.obtener(1));
+        // System.out.println(p1);
     }
 
-    public static CarteraEstudiantes generarCarteraEstudiantes(){
-        CarteraEstudiantes cartera = new CarteraEstudiantes();
-
-        cartera.guardar(new Estudiante("Juan", "Pérez", "12345678A"));
-        cartera.guardar(new Estudiante("Marta", "Gómez", "87654321B"));
-        cartera.guardar(new Estudiante("Luis", "Martínez", "11223344C"));
-        cartera.guardar(new Estudiante("Ana", "López", "44332211D"));
-        cartera.guardar(new Estudiante("Carlos", "Sánchez", "55667788E"));
-        cartera.guardar(new Estudiante("Laura", "Ramírez", "88776655F"));
-        cartera.guardar(new Estudiante("Jorge", "Torres", "99887766G"));
-        cartera.guardar(new Estudiante("Sofía", "Flores", "66554433H"));
-        cartera.guardar(new Estudiante("Miguel", "Rivera", "33445566I"));
-        cartera.guardar(new Estudiante("Elena", "Sánchez", "22113344J"));
-
-        return cartera;
-    }
     // Método para agregar un nuevo libro
     private static void agregarLibro(CatalogoLibros catalogo) {
         try {
@@ -184,7 +152,7 @@ public class Main {
                     " Error: Año o ISBN inválido. El año debe ser un número y el ISBN debe tener 4 dígitos.", "Error",
                     JOptionPane.ERROR_MESSAGE);
         } catch (IllegalArgumentException e) {
-            JOptionPane.showMessageDialog(null, "✗ Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, " Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -212,10 +180,10 @@ public class Main {
 
         Libro libro = catalogo.buscarIsbn(isbn);
         if (libro != null) {
-            JOptionPane.showMessageDialog(null, "✓ Libro encontrado:\n\n" + libro, "Búsqueda Exitosa",
+            JOptionPane.showMessageDialog(null, " Libro encontrado:\n\n" + libro, "Búsqueda Exitosa",
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "✗ No se encontró un libro con ISBN: " + isbn, "No Encontrado",
+            JOptionPane.showMessageDialog(null, " No se encontró un libro con ISBN: " + isbn, "No Encontrado",
                     JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -228,13 +196,13 @@ public class Main {
 
         var librosAutor = catalogo.buscarAutor(autor);
         if (!librosAutor.isEmpty()) {
-            StringBuilder sb = new StringBuilder("✓ Libros encontrados de " + autor + ":\n\n");
+            StringBuilder sb = new StringBuilder(" Libros encontrados de " + autor + ":\n\n");
             for (Libro libro : librosAutor) {
                 sb.append(libro).append("\n\n");
             }
             JOptionPane.showMessageDialog(null, sb.toString(), "Búsqueda Exitosa", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "✗ No se encontraron libros del autor: " + autor, "No Encontrado",
+            JOptionPane.showMessageDialog(null, " No se encontraron libros del autor: " + autor, "No Encontrado",
                     JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -248,15 +216,16 @@ public class Main {
         Libro libro = catalogo.buscarIsbn(isbn);
         if (libro != null) {
             libro.prestar();
-            if (!libro.isDisponible()) {
-                JOptionPane.showMessageDialog(null, "✓ Libro prestado exitosamente: " + libro.getTitulo(), "Éxito",
+            if (libro.isDisponible()) {
+                libro.prestar();
+                JOptionPane.showMessageDialog(null, " Libro prestado exitosamente: " + libro.getTitulo(), "Éxito",
                         JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "✗ El libro no está disponible para préstamo.", "Error",
+                JOptionPane.showMessageDialog(null, " El libro no está disponible para préstamo.", "Error",
                         JOptionPane.WARNING_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "✗ Libro no encontrado con ISBN: " + isbn, "Error",
+            JOptionPane.showMessageDialog(null, "El libro no ha sido encontrado con ISBN: " + isbn, "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -271,14 +240,14 @@ public class Main {
         if (libro != null) {
             libro.devolver();
             if (libro.isDisponible()) {
-                JOptionPane.showMessageDialog(null, "✓ Libro devuelto exitosamente: " + libro.getTitulo(), "Éxito",
+                JOptionPane.showMessageDialog(null, "Libro devuelto exitosamente: " + libro.getTitulo(), "Éxito",
                         JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "✗ El libro ya estaba disponible.", "Información",
+                JOptionPane.showMessageDialog(null, "El libro ya estaba disponible.", "Información",
                         JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "✗ Libro no encontrado con ISBN: " + isbn, "Error",
+            JOptionPane.showMessageDialog(null, "E libro no ha sido encontrado con ISBN: " + isbn, "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -292,10 +261,10 @@ public class Main {
         Libro libro = catalogo.buscarIsbn(isbn);
         if (libro != null) {
             catalogo.eliminarISBN(isbn);
-            JOptionPane.showMessageDialog(null, "✓ Libro eliminado exitosamente: " + libro.getTitulo(), "Éxito",
+            JOptionPane.showMessageDialog(null, " Libro eliminado exitosamente: " + libro.getTitulo(), "Éxito",
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "✗ Libro no encontrado con ISBN: " + isbn, "Error",
+            JOptionPane.showMessageDialog(null, " Libro no encontrado con ISBN: " + isbn, "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -308,4 +277,4 @@ public class Main {
     }
 }
 
-//falta añadir los metodos para la cartera de estudiantes
+// falta añadir los metodos para la cartera de estudiantes

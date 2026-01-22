@@ -100,8 +100,9 @@ public class Prestamo {
 
     @Override
     public String toString() {
-        return "Prestamo [id=" + id + "\n" + ", estudiante=" + estudiante.getDni() + "\n" +  "libro=" + libro.getISBN()+ "\n" + ", fechaInicial="
-                + fechaInicial +"\n"+ ", fechaDev=" + fechaDev + "]";
+        return "Prestamo [id=" + id + "\n" + ", estudiante=" + estudiante.getDni() + "\n" + "libro=" + libro.getISBN()
+                + "\n" + ", fechaInicial="
+                + fechaInicial + "\n" + ", fechaDev=" + fechaDev + "]";
     }
 
 }

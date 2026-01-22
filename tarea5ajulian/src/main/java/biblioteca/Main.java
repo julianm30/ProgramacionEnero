@@ -6,31 +6,13 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("========== PARTE A: CLASE LIBRO Y ENUM GENERO ==========\n");
 
-        // Crear 5 estudiantes
-        Estudiante est1 = new Estudiante("Juan", "García", "12345678A");
-        Estudiante est2 = new Estudiante("María", "López", "23456789B");
-        Estudiante est3 = new Estudiante("Carlos", "Martínez", "34567890C");
-        Estudiante est4 = new Estudiante("Ana", "Rodríguez", "45678901D");
-        Estudiante est5 = new Estudiante("Pedro", "Fernández", "56789012E");
-
-        // Mostrar datos de los estudiantes
-        System.out.println("========== ESTUDIANTES ==========\n");
-        System.out.println("Estudiante 1: " + est1);
-        System.out.println("Estudiante 2: " + est2);
-        System.out.println("Estudiante 3: " + est3);
-        System.out.println("Estudiante 4: " + est4);
-        System.out.println("Estudiante 5: " + est5);
+     
 
         // crear catalogo y agregar estudiantes
         System.out.println("\nPARTE B: CLASE CATALOGO Estudiantes\n");
         CarteraEstudiantes estudiantes = new CarteraEstudiantes();
 
-        //agregamos estudiantes
-        estudiantes.anadirEstudiante(est1);
-        estudiantes.anadirEstudiante(est2);
-        estudiantes.anadirEstudiante(est3);
-        estudiantes.anadirEstudiante(est4);
-        estudiantes.anadirEstudiante(est5);
+        
 
         // Crear 10 libros distintos y un 11º que repite el ISBN del 10º
         Libro libro1 = new Libro("Cien años de soledad", "Gabriel García Márquez", 1967, "1111", Genero.NOVELA, true);
@@ -69,7 +51,8 @@ public class Main {
 
         // Crear catálogo y agregar libros
         System.out.println("\nPARTE B: CLASE CATALOGO LIBROS\n");
-        CatalogoLibros catalogo = new CatalogoLibros();
+
+       CatalogoLibros catalogo = generarCatalogoLibros();
 
         catalogo.guardar(libro1);
         catalogo.guardar(libro2);
@@ -132,14 +115,30 @@ public class Main {
             }
         }
     
-    // Prestamo p1 =new Prestamo(1, cartera.obtenerEstudiante , catalogo.obtener(1));
-    //  System.out.println(p1);
+     //Prestamo p1 =new Prestamo(1, cartera , catalogo.obtener(1));
+      //System.out.println(p1);
 
 
 
 
     }
 
+    public static CarteraEstudiantes generarCarteraEstudiantes(){
+        CarteraEstudiantes cartera = new CarteraEstudiantes();
+
+        cartera.guardar(new Estudiante("Juan", "Pérez", "12345678A"));
+        cartera.guardar(new Estudiante("Marta", "Gómez", "87654321B"));
+        cartera.guardar(new Estudiante("Luis", "Martínez", "11223344C"));
+        cartera.guardar(new Estudiante("Ana", "López", "44332211D"));
+        cartera.guardar(new Estudiante("Carlos", "Sánchez", "55667788E"));
+        cartera.guardar(new Estudiante("Laura", "Ramírez", "88776655F"));
+        cartera.guardar(new Estudiante("Jorge", "Torres", "99887766G"));
+        cartera.guardar(new Estudiante("Sofía", "Flores", "66554433H"));
+        cartera.guardar(new Estudiante("Miguel", "Rivera", "33445566I"));
+        cartera.guardar(new Estudiante("Elena", "Sánchez", "22113344J"));
+
+        return cartera;
+    }
     // Método para agregar un nuevo libro
     private static void agregarLibro(CatalogoLibros catalogo) {
         try {
@@ -182,7 +181,7 @@ public class Main {
                     JOptionPane.INFORMATION_MESSAGE);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null,
-                    "✗ Error: Año o ISBN inválido. El año debe ser un número y el ISBN debe tener 4 dígitos.", "Error",
+                    " Error: Año o ISBN inválido. El año debe ser un número y el ISBN debe tener 4 dígitos.", "Error",
                     JOptionPane.ERROR_MESSAGE);
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, "✗ Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

@@ -2,15 +2,25 @@ package biblioteca;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 public class CarteraEstudiantes {
 
-    private List<Estudiante> cartera;
+    private final ArrayList<Estudiante> cartera;
 
-    public CarteraEstudiantes(List<Estudiante> cartera) {
+    public CarteraEstudiantes(ArrayList<Estudiante> cartera) {
         this.cartera = cartera;
+    }
+    //buscar por nombre
+    public int buscarPorNombre(String nombre) {
+        ordenarPorNombre();
+        Estudiante aux = new Estudiante(nombre, "", "");
+        return Collections.binarySearch(cartera, aux, (e1, e2) -> e1.getNombre().compareTo(e2.getNombre()));
+    }
+
+    //ordenar por nombre
+    public void ordenarPorNombre() {
+        Collections.sort(cartera, (e1, e2) -> e1.getNombre().compareTo(e2.getNombre()));
     }
 
     // constructor predeterminado
@@ -36,6 +46,10 @@ public class CarteraEstudiantes {
 
     }
 
+    public boolean estaVacia() {
+        return cartera.isEmpty();
+    }
+
     // ordenar estudiantes por dni
     public void ordenarPorDNI() {
         Collections.sort(cartera, (e1, e2) -> e2.getDni().compareTo(e1.getDni()));
@@ -49,9 +63,12 @@ public class CarteraEstudiantes {
     public void imprimir() {
         cartera.forEach(System.out::println);
     }
-    
-    public Estudiante obtenerEstudiante(){
-    return cartera.get(new Random().nextInt(0, cartera.size()));
 
-}
+    public Estudiante obtenerEstudiante() {
+        return cartera.get(new Random().nextInt(0, cartera.size()));
+
+    }
+    public void guardar(Estudiante estudiante){
+        cartera.add(estudiante);
+    }
 }

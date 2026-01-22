@@ -132,8 +132,8 @@ public class Main {
             }
         }
     
-        Prestamo p1 =new Prestamo(1, cartera.obtenerEstudiante , catalogo.obtener(1));
-        System.out.println(p1);
+    // Prestamo p1 =new Prestamo(1, cartera.obtenerEstudiante , catalogo.obtener(1));
+    //  System.out.println(p1);
 
 
 

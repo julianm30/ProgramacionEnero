@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> a1b1187023c5dc0feb910cb8bc6c27d9e0d6866b
 public class CatalogoLibros {
 
     private final List<Libro> lista;

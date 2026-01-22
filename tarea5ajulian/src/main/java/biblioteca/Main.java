@@ -131,6 +131,13 @@ public class Main {
                         JOptionPane.ERROR_MESSAGE);
             }
         }
+    
+        Prestamo p1 =new Prestamo(1, cartera.obtenerEstudiante , catalogo.obtener(1));
+        System.out.println(p1);
+
+
+
+
     }
 
     // Método para agregar un nuevo libro
@@ -150,40 +157,22 @@ public class Main {
             int anio = Integer.parseInt(anioStr);
 
             String isbn = JOptionPane.showInputDialog("Ingresa el ISBN (4 dígitos):");
-<<<<<<< HEAD
-            if (isbn == null) {
-
-            }
-=======
             if (isbn == null)
                 return;
->>>>>>> a1b1187023c5dc0feb910cb8bc6c27d9e0d6866b
 
             String[] generos = { "NOVELA", "FICCION", "POESIA", "RELATO" };
             int indexGenero = JOptionPane.showOptionDialog(null, "Selecciona el género:", "Género",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, generos, generos[0]);
-<<<<<<< HEAD
-            if (indexGenero < 0) {
-
-            }
-=======
             if (indexGenero < 0)
                 return;
->>>>>>> a1b1187023c5dc0feb910cb8bc6c27d9e0d6866b
 
             Genero genero = Genero.valueOf(generos[indexGenero]);
 
             String[] disponibilidad = { "Disponible", "No disponible" };
             int indexDisponible = JOptionPane.showOptionDialog(null, "¿Está disponible?", "Disponibilidad",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, disponibilidad, disponibilidad[0]);
-<<<<<<< HEAD
-            if (indexDisponible < 0) {
-
-            }
-=======
             if (indexDisponible < 0)
                 return;
->>>>>>> a1b1187023c5dc0feb910cb8bc6c27d9e0d6866b
 
             boolean disponible = indexDisponible == 0;
 
@@ -205,10 +194,7 @@ public class Main {
         if (catalogo.estaVacia()) {
             JOptionPane.showMessageDialog(null, "El catálogo está vacío.", "Información",
                     JOptionPane.INFORMATION_MESSAGE);
-<<<<<<< HEAD
-=======
             return;
->>>>>>> a1b1187023c5dc0feb910cb8bc6c27d9e0d6866b
         }
 
         StringBuilder sb = new StringBuilder("========== LIBROS DEL CATÁLOGO ==========\n\n");
@@ -322,3 +308,5 @@ public class Main {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 }
+
+//falta añadir los metodos para la cartera de estudiantes

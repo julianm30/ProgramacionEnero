@@ -17,12 +17,11 @@ public class Estudiante {
     }
 
     // Constructor por defecto
-    public Estudiante(){
+    public Estudiante() {
         this.nombre = "Ruben";
         this.apellidos = "Wood";
         this.dni = "000 111 222 W";
     }
-    
 
     // Getters n Setters
     public String getNombre() {

@@ -3,6 +3,7 @@ package biblioteca;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class CarteraEstudiantes {
 
@@ -48,4 +49,9 @@ public class CarteraEstudiantes {
     public void imprimir() {
         cartera.forEach(System.out::println);
     }
+    
+    public Estudiante obtenerEstudiante(){
+    return cartera.get(new Random().nextInt(0, cartera.size()));
+
+}
 }

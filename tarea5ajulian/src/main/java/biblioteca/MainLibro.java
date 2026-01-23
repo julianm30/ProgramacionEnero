@@ -32,15 +32,7 @@ public class MainLibro {
         System.out.println("Libro 10: " + libro10);
         System.out.println("Libro 11: " + libro11);
 
-        // Prueba de métodos prestar y devolver
-        System.out.println("\n PRUEBA DE MÉTODOS PRESTAR() Y DEVOLVER()");
-        libro1.prestar();
-        System.out.println("Estado después de prestar: " + libro1);
-        libro1.prestar(); // Intenta prestar un libro ya prestado
-        libro1.devolver();
-        System.out.println("Estado después de devolver: " + libro1);
-
-        // Crear catálogo y agregar libros
+               // Crear catálogo y agregar libros
         System.out.println("\nPARTE B: CLASE CATALOGO LIBROS\n");
 
         CatalogoLibros catalogo = new CatalogoLibros();
@@ -64,42 +56,55 @@ public class MainLibro {
 
         boolean continuar = true;
         while (continuar) {
-            String opcion = JOptionPane.showInputDialog("""
-                    ========== MENÚ DE CATÁLOGO DE LIBROS ==========
-
-                    1. Agregar un nuevo libro
-                    2. Mostrar todos los libros del catálogo
-                    3. Buscar libro por ISBN
-                    4. Buscar libros por autor
-                    5. Prestar un libro
-                    6. Devolver un libro
-                    7. Eliminar un libro
-                    8. Mostrar cantidad de libros
-                    9. Salir
-
-                    Selecciona una opción (1-9):""");
-
-            if (opcion == null) {
-                continuar = false;
-                break;
-            }
-
-            switch (opcion.trim()) {
-                case "1" -> agregarLibro(catalogo);
-                case "2" -> mostrarCatalogo(catalogo);
-                case "3" -> buscarPorISBN(catalogo);
-                case "4" -> buscarPorAutor(catalogo);
-                case "5" -> prestarLibro(catalogo);
-                case "6" -> devolverLibro(catalogo);
-                case "7" -> eliminarLibro(catalogo);
-                case "8" -> mostrarCantidad(catalogo);
-                case "9" -> {
-                    JOptionPane.showMessageDialog(null, "Has decidido salir");
+            String[] opciones = {
+                    "1. Agregar nuevo libro",
+                    "2. Mostrar catálogo",
+                    "3. Buscar libro por ISBN",
+                    "4. Buscar libros por autor",
+                    "5. Prestar libro",
+                    "6. Devolver libro",
+                    "7. Eliminar libro",
+                    "8. Salir"
+            };
+            
+            int seleccion = JOptionPane.showOptionDialog(null,
+                    "Selecciona una opción:",
+                    "Menú de Catálogo de Libros",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    opciones,
+                    opciones[0]);
+            
+            switch (seleccion) {
+                case 0:
+                    agregarLibro(catalogo);
+                    break;
+                case 1:
+                    mostrarCatalogo(catalogo);
+                    break;
+                case 2:
+                    buscarPorISBN(catalogo);
+                    break;
+                case 3:
+                    buscarPorAutor(catalogo);
+                    break;
+                case 4:
+                    prestarLibro(catalogo);
+                    break;
+                case 5:
+                    devolverLibro(catalogo);
+                    break;
+                case 6:
+                    eliminarLibro(catalogo);
+                    break;
+                case 7:
+                    JOptionPane.showMessageDialog(null, "¡Hasta luego!", "Salir", JOptionPane.INFORMATION_MESSAGE);
                     continuar = false;
-                }
-                default -> JOptionPane.showMessageDialog(null,
-                        "Opción no válida. Por favor, selecciona una opción entre 1 y 9.", "Error",
-                        JOptionPane.ERROR_MESSAGE);
+                    break;
+                default:
+                    continuar = false;
+                    break;
             }
         }
 
@@ -107,7 +112,6 @@ public class MainLibro {
         // System.out.println(p1);
     }
 
-    // Método para agregar un nuevo libro
     private static void agregarLibro(CatalogoLibros catalogo) {
         try {
             String titulo = JOptionPane.showInputDialog("Ingresa el título del libro:");
@@ -276,5 +280,3 @@ public class MainLibro {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 }
-
-// falta añadir los metodos para la cartera de estudiantes

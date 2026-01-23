@@ -2,7 +2,7 @@ package biblioteca;
 
 import javax.swing.JOptionPane;
 
-public class Main {
+public class MainLibro {
     public static void main(String[] args) {
 
         // Crear 10 libros distintos y un 11º que repite el ISBN del 10º

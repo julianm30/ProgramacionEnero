@@ -26,13 +26,14 @@ public class ListaPrestamos {
     // Modificar Libro prestamo
     // Modificar estudiante prestamo
 
-    public Prestamo buscarPrestamoID(int id) {
+   /* public Prestamo buscarPrestamoID(int id) {
         for (Prestamo Prestamo : listaPrestamos) {
             if (Prestamo.getId() == id) {
             }
-            return Prestamo;
+            
         }
-    }
+        
+    }*/
 
 
 

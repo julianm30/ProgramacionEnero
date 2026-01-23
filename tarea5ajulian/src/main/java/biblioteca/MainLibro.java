@@ -32,7 +32,7 @@ public class MainLibro {
         System.out.println("Libro 10: " + libro10);
         System.out.println("Libro 11: " + libro11);
 
-               // Crear catálogo y agregar libros
+        // Crear catálogo y agregar libros
         System.out.println("\nPARTE B: CLASE CATALOGO LIBROS\n");
 
         CatalogoLibros catalogo = new CatalogoLibros();
@@ -66,7 +66,7 @@ public class MainLibro {
                     "7. Eliminar libro",
                     "8. Salir"
             };
-            
+
             int seleccion = JOptionPane.showOptionDialog(null,
                     "Selecciona una opción:",
                     "Menú de Catálogo de Libros",
@@ -75,7 +75,7 @@ public class MainLibro {
                     null,
                     opciones,
                     opciones[0]);
-            
+
             switch (seleccion) {
                 case 0:
                     agregarLibro(catalogo);
@@ -108,8 +108,6 @@ public class MainLibro {
             }
         }
 
-        // Prestamo p1 =new Prestamo(1, cartera , catalogo.obtener(1));
-        // System.out.println(p1);
     }
 
     private static void agregarLibro(CatalogoLibros catalogo) {
@@ -168,7 +166,7 @@ public class MainLibro {
             return;
         }
 
-        StringBuilder sb = new StringBuilder("========== LIBROS DEL CATÁLOGO ==========\n\n");
+        StringBuilder sb = new StringBuilder(" LIBROS DEL CATÁLOGO \n\n");
         for (int i = 0; i < catalogo.cantidad(); i++) {
             sb.append(String.format("[Posición %d] %s\n\n", i, catalogo.obtener(i)));
         }

@@ -30,7 +30,7 @@ public class ListaPrestamos {
         for (Prestamo prestamo : listaPrestamos) {
             if (prestamo.getId() == idPrestamo) {
                 prestamo.setLibro(nuevoLibro);
-                
+
             }
         }
     }
@@ -40,7 +40,7 @@ public class ListaPrestamos {
         for (Prestamo prestamo : listaPrestamos) {
             if (prestamo.getId() == idPrestamo) {
                 prestamo.setEstudiante(nuevoEstudiante);
-                
+
             }
         }
     }
@@ -109,11 +109,11 @@ public class ListaPrestamos {
     public Prestamo busquedaBinariaPorID(int id) {
         ordenarPorID();
         int izq = 0, der = listaPrestamos.size() - 1;
-        
+
         while (izq <= der) {
             int mid = izq + (der - izq) / 2;
             int midID = listaPrestamos.get(mid).getId();
-            
+
             if (midID == id) {
                 return listaPrestamos.get(mid);
             } else if (midID < id) {
@@ -142,7 +142,8 @@ public class ListaPrestamos {
 
     // Ordenar por nombre de alumno
     public void ordenarPorNombreEstudiante() {
-        Collections.sort(listaPrestamos, (p1, p2) -> p1.getEstudiante().getNombre().compareTo(p2.getEstudiante().getNombre()));
+        Collections.sort(listaPrestamos,
+                (p1, p2) -> p1.getEstudiante().getNombre().compareTo(p2.getEstudiante().getNombre()));
     }
 
     // Método auxiliar para obtener cantidad de préstamos

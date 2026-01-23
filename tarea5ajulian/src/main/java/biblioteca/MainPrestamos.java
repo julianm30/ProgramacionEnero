@@ -218,7 +218,7 @@ public class MainPrestamos {
             return;
         }
 
-        StringBuilder sb = new StringBuilder("========== TODOS LOS PRÉSTAMOS ==========\n\n");
+        StringBuilder sb = new StringBuilder(" TODOS LOS PRÉSTAMOS \n\n");
         for (int i = 0; i < listaPrestamos.cantidad(); i++) {
             sb.append(String.format("[Posición %d] %s\n\n", i, listaPrestamos.obtener(i)));
         }

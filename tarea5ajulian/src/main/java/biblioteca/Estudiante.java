@@ -51,8 +51,7 @@ public class Estudiante {
     // toString
     @Override
     public String toString() {
-        return "Estudiante [nombre=" + nombre + ", Apellidos=" + apellidos + ", dni=" + dni
-                + "]";
+        return "Estudiante: Nombre: " + nombre + ", Apellidos: " + apellidos + ", DNI: " + dni;
     }
 
     // HarshCode

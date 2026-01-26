@@ -82,9 +82,9 @@ public class Libro {
     public void prestar() {
         if (disponible) {
             disponible = false;
-            System.out.println("✓ Libro '" + titulo + "' prestado exitosamente.");
+            System.out.println(" Libro '" + titulo + "' prestado exitosamente.");
         } else {
-            System.out.println("✗ El libro '" + titulo + "' no está disponible para préstamo.");
+            System.out.println(" El libro '" + titulo + "' no está disponible para préstamo.");
         }
     }
 
@@ -92,9 +92,9 @@ public class Libro {
     public void devolver() {
         if (!disponible) {
             disponible = true;
-            System.out.println("✓ Libro '" + titulo + "' devuelto exitosamente.");
+            System.out.println(" Libro '" + titulo + "' devuelto exitosamente.");
         } else {
-            System.out.println("✗ El libro '" + titulo + "' ya estaba disponible.");
+            System.out.println(" El libro '" + titulo + "' ya estaba disponible.");
         }
     }
 
